@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.png" />
+    <title>Quarterly Report</title>
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        color: #484848;
+        width: 100%;
+      }
+
+      .page {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        padding-bottom: 0;
+      }
+
+      .translation-btn {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+      }
+
+      .translation-btn a {
+        text-decoration: none;
+        border: 1px solid #dcdcdc;
+        border-radius: 4px;
+        padding: 0 10px;
+        font-size: 14px;
+        font-weight: bold;
+        display: inline-block;
+        font-family: Lucida Grande, Lucida Sans Unicode, Lucida Sans, Geneva,
+          Verdana, sans-serif;
+        line-height: 26px;
+        color: #00b4cd;
+        cursor: pointer;
+      }
+
+      /* Header styles start */
+      .header {
+        width: 100%;
+        padding: 10px 0;
+        margin-bottom: 20px;
+        text-align: center;
+        background-color: #fff;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .header-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+      }
+
+      .header-content > p {
+        margin: 0;
+        font-size: 13px;
+        color: #58585a;
+        font-weight: bold;
+        line-height: 26px;
+        font-family: Lucida Grande, Lucida Sans Unicode, Lucida Sans, Geneva,
+          Verdana, sans-serif;
+      }
+
+      .header-content > h3 {
+        margin: 0;
+        color: #ea5f2b;
+        font-size: 26px;
+        line-height: 26px;
+        font-family: Lucida Grande, Lucida Sans Unicode, Lucida Sans, Geneva,
+          Verdana, sans-serif;
+      }
+      /* Header styles end */
+
+      /* Pinned article styles start */
+      .pinned-article {
+        background-color: #fff8f6;
+        padding: 10px;
+        margin-bottom: 40px;
+      }
+
+      .pinned-article img {
+        width: 100%;
+        height: auto;
+        max-height: 200px;
+        margin-bottom: 10px;
+        object-fit: cover;
+      }
+
+      .pinned-article h2 {
+        font-size: 21px;
+        font-weight: bold;
+        font-family: Lucida Grande, Lucida Sans Unicode, Lucida Sans, Geneva,
+          Verdana, sans-serif;
+        line-height: 30px;
+        color: #58585a;
+        margin-bottom: 10px;
+      }
+
+      .pinned-article p {
+        margin-bottom: 10px;
+        font-size: 16px;
+        font-family: Lucida Grande, Lucida Sans Unicode, Lucida Sans, Geneva,
+          Verdana, sans-serif;
+        color: #58585a;
+        line-height: 26px;
+      }
+      /* Pinned article styles end */
+
+      /* Card styles start */
+      .card-container {
+        max-width: 1120px;
+        margin: 0 auto;
+      }
+
+      .card {
+        display: flex;
+        background-color: #fff8f6;
+        margin-bottom: 20px;
+        padding: 10px;
+      }
+
+      .card-image {
+        flex-shrink: 0;
+        width: 35%;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .card-content {
+        flex: 1;
+        padding: 0 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+      }
+
+      .card-content ul {
+        padding-left: 25px;
+        margin: 0;
+      }
+
+      .card-content li {
+        font-family: Lucida Grande, Lucida Sans Unicode, Lucida Sans, Geneva,
+          Verdana, sans-serif;
+        line-height: 25px;
+        color: #58585a;
+      }
+
+      .card-title {
+        margin-top: 0;
+        margin-bottom: 10px;
+        font-size: 21px;
+        font-weight: bold;
+        font-family: Lucida Grande, Lucida Sans Unicode, Lucida Sans, Geneva,
+          Verdana, sans-serif;
+        line-height: 30px;
+        color: #58585a;
+      }
+
+      .card-subtitle {
+        color: #ff7346;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .card-link {
+        display: inline-block;
+        margin: 10px 0 10px 0;
+        background-color: #ff7346;
+        color: #fff;
+        padding: 10px 20px;
+        text-decoration: none;
+        font-size: 14px;
+        max-width: 70px;
+        justify-self: flex-end;
+      }
+      /* Card styles end */
+
+      /* Bottom card styles start */
+      .bottom-cards-container {
+        max-width: 1120px;
+        margin: 40px auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .bottom-card {
+        background-color: #fff;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: calc(50% - 10px);
+        margin-bottom: 20px;
+      }
+
+      .bottom-card a {
+        color: #ff7346;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .bottom-card p {
+        margin-bottom: 20px;
+        font-family: Lucida Grande, Lucida Sans Unicode, Lucida Sans, Geneva,
+          Verdana, sans-serif;
+        line-height: 30px;
+        color: #58585a;
+      }
+      /* Bottom card styles end */
+
+      /* Footer styles start */
+      .footer {
+        max-width: 600px;
+        margin: auto;
+        margin-bottom: 40px;
+        padding: 20px;
+        padding-top: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .footer p {
+        margin: 0;
+        line-height: 20px;
+        color: #58585a;
+        font-family: Lucida Grande, Lucida Sans Unicode, Lucida Sans, Geneva,
+          Verdana, sans-serif;
+        font-size: 12px;
+      }
+
+      .footer-links {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .footer-links a {
+        font-size: 12px;
+        line-height: 20px;
+        color: #58585a;
+        text-decoration: underline;
+        font-family: Lucida Grande, Lucida Sans Unicode, Lucida Sans, Geneva,
+          Verdana, sans-serif;
+      }
+      /* Footer styles end */
+      @media (max-width: 500px) {
+        .card {
+          flex-direction: column;
+        }
+
+        .card-image {
+          width: 100%;
+          max-height: 250px;
+        }
+
+        .card-image img {
+          max-height: 250px;
+        }
+
+        .bottom-cards-container {
+          flex-direction: column;
+          gap: 10px;
+          padding: 20px;
+        }
+
+        .bottom-card {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <!-- Header Section -->
+      <div class="translation-btn">
+        <a onclick="toggleLanguage()">English version</a>
+      </div>
+      <!-- Header Section -->
+      <header class="header">
+        <img
+          src="https://mailer.cdcpensioen.nl/uploads/nieuwsflits/email-common/ing/logo.png"
+          alt="Logo"
+        />
+        <div class="header-content">
+          <p>Q2 2024</p>
+          <h3 data-translate="Quarterly Report">Kwartaalbericht</h3>
+        </div>
+      </header>
+
+      <!-- Pinned Article Section -->
+      <div class="pinned-article">
+        <img
+          src="https://mailer.cdcpensioen.nl/uploads/nieuwsflits/ing/juli2024/27_nieuwsflits-juli-aug-deeltijd-pensioen-hoofd-breed.jpg"
+          alt="Pinned Article Image"
+        />
+        <h2 data-translate="Quarterly Report Q2 2024">
+          Kwartaalbericht Q2 2024
+        </h2>
+        <p
+          data-translate="ING CDC Pensioenfonds is committed to giving accountability for its policies and investment results. After all, they could have an impact on your pension."
+        >
+          ING CDC Pensioenfonds vindt het belangrijk om verantwoording af te
+          leggen over het gevoerde beleid en de beleggingsresultaten. Die kunnen
+          invloed hebben op jouw pensioen.
+        </p>
+      </div>
+
+      <!-- Cards Section -->
+      <div class="cards-container">
+        <div class="card">
+          <div class="card-image">
+            <img
+              src="https://kwartaalbericht.ing.cdcpensioen.nl/uploads/ICP%202024/Kwartaalbericht/test%20iconen/dekkingsgraden.png"
+              alt="Placeholder Image"
+            />
+          </div>
+          <div class="card-content">
+            <h2
+              class="card-title"
+              data-translate="Funding ratio improved in second quarter"
+            >
+              Dekkingsgraad gestegen in tweede kwartaal
+            </h2>
+            <strong class="card-subtitle" data-translate="What you need to know"
+              >Dit moet je weten</strong
+            >
+            <ul>
+              <li
+                data-translate="current funding ratio rose from 130.0% to 134.5%"
+              >
+                actuele dekkingsgraad gestegen van 130,0% naar 134,5%
+              </li>
+              <li
+                data-translate="policy funding ratio rose from 131.7% to 133.3%"
+              >
+                beleidsdekkingsgraad gestegen van 131,7% naar 133,3%
+              </li>
+              <li data-translate="what does this mean for your pension?">
+                wat betekent dit voor je pensioen?
+              </li>
+            </ul>
+            <a
+              class="card-link"
+              target="_blank"
+              data-translate="Read more"
+              href="https://kwartaalbericht.ing.cdcpensioen.nl/2024/2/dekkingsgraden?utm_source=mistermail&utm_medium=referral&utm_campaign=kwartaalbericht-q2-2024"
+              data-href-nl="https://kwartaalbericht.ing.cdcpensioen.nl/2024/2/dekkingsgraden?utm_source=mistermail&utm_medium=referral&utm_campaign=kwartaalbericht-q2-2024"
+              data-href-en="https://kwartaalbericht.ing.cdcpensioen.nl/en/2024/2/dekkingsgraden?utm_source=mistermail&utm_[…]um=referral&utm_campaign=kwartaalbericht-q2-2024-en"
+              >Lees meer</a
+            >
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-image">
+            <img
+              src="https://kwartaalbericht.ing.cdcpensioen.nl/uploads/ICP%202024/Kwartaalbericht/test%20iconen/financiele_ontwikkeling.png"
+              alt="Placeholder Image"
+            />
+          </div>
+          <div class="card-content">
+            <h2
+              class="card-title"
+              data-translate="Interest rates continue in upward trend"
+            >
+              Trend van stijgende rente zet door
+            </h2>
+            <strong class="card-subtitle" data-translate="What you need to know"
+              >Dit moet je weten</strong
+            >
+            <ul>
+              <li data-translate="will interest rates continue to rise?">
+                maar blijft de rente zich gunstig ontwikkelen?
+              </li>
+              <li data-translate="what does this mean for your pension?">
+                wat betekent dit voor jouw pensioen?
+              </li>
+              <li data-translate="when will you know more?">
+                wanneer weet je meer?
+              </li>
+            </ul>
+            <a
+              class="card-link"
+              target="_blank"
+              data-translate="Read more"
+              href="https://kwartaalbericht.ing.cdcpensioen.nl/2024/2/rente?utm_source=mistermail&utm_medium=referral&utm_campaign=kwartaalbericht-q2-2024"
+              data-href-nl="https://kwartaalbericht.ing.cdcpensioen.nl/2024/2/rente?utm_source=mistermail&utm_medium=referral&utm_campaign=kwartaalbericht-q2-2024"
+              data-href-en="https://kwartaalbericht.ing.cdcpensioen.nl/en/2024/2/rente?utm_source=mistermail&utm_medium=referral&utm_campaign=kwartaalbericht-q2-2024-en"
+              >Lees meer</a
+            >
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-image">
+            <img
+              src="https://kwartaalbericht.ing.cdcpensioen.nl/uploads/ICP%202024/Kwartaalbericht/test%20iconen/rendementen.png"
+              alt="Placeholder Image"
+            />
+          </div>
+          <div class="card-content">
+            <h2 class="card-title" data-translate="Equity on the rise">
+              Aandelen in de lift
+            </h2>
+            <strong class="card-subtitle" data-translate="What you need to know"
+              >Dit moet je weten</strong
+            >
+            <ul>
+              <li
+                data-translate="why is return on investments important for your pension?"
+              >
+                waarom is rendement belangrijk voor je pensioen?
+              </li>
+              <li data-translate="does your pension contribution play a role?">
+                speelt de premie die je inlegt ook nog een rol?
+              </li>
+              <li
+                data-translate="which investments performed well in the second quarter?"
+              >
+                welke beleggingen deden het goed in het tweede kwartaal?
+              </li>
+            </ul>
+            <a
+              class="card-link"
+              target="_blank"
+              data-translate="Read more"
+              href="https://kwartaalbericht.ing.cdcpensioen.nl/2024/2/rendementen?utm_source=mistermail&utm_medium=referral&utm_campaign=kwartaalbericht-q2-2024"
+              data-href-nl="https://kwartaalbericht.ing.cdcpensioen.nl/2024/2/rendementen?utm_source=mistermail&utm_medium=referral&utm_campaign=kwartaalbericht-q2-2024"
+              data-href-en="https://kwartaalbericht.ing.cdcpensioen.nl/en/2024/2/rendementen?utm_source=mistermail&utm_medium=referral&utm_campaign=kwartaalbericht-q2-2024-en"
+              >Lees meer</a
+            >
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-image">
+            <img
+              src="https://kwartaalbericht.ing.cdcpensioen.nl/uploads/ICP%202024/Kwartaalbericht/test%20iconen/financiele_martken.png"
+              alt="Placeholder Image"
+            />
+          </div>
+          <div class="card-content">
+            <h2
+              class="card-title"
+              data-translate="Favourable financial developments alongside political tension"
+            >
+              Gunstige financiële ontwikkelingen naast politieke spanningen
+            </h2>
+            <strong class="card-subtitle" data-translate="What you need to know"
+              >Dit moet je weten</strong
+            >
+            <ul>
+              <li data-translate="will the AI hype boost share prices?">
+                leidt de AI-hype tot een stijging van de aandelen?
+              </li>
+              <li
+                data-translate="are you noticing that inflation is lower than expected?"
+              >
+                merk je al dat de inflatie lager is dan verwacht?
+              </li>
+              <li
+                data-translate="are oil prices being impacted by tension in the Middle East?"
+              >
+                beweegt de olieprijs mee met de spanningen in het Midden-Oosten?
+              </li>
+            </ul>
+            <a
+              class="card-link"
+              target="_blank"
+              data-translate="Read more"
+              href="https://kwartaalbericht.ing.cdcpensioen.nl/2024/2/financiele-markten?utm_source=mistermail&utm_medium=ref"
+              data-href-nl="https://kwartaalbericht.ing.cdcpensioen.nl/2024/2/financiele-markten?utm_source=mistermail&utm_medium=ref"
+              data-href-en="https://kwartaalbericht.ing.cdcpensioen.nl/en/2024/2/financiele-markten?utm_source=mistermail&[…]um=referral&utm_campaign=kwartaalbericht-q2-2024-en"
+              >Lees meer</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Cards Section -->
+      <div class="bottom-cards-container">
+        <div class="bottom-card">
+          <p
+            data-translate="ING CDC Pensioenfonds is happy to inform you through various publications."
+          >
+            ING CDC Pensioenfonds informeert je regelmatig over de ontwikkeling
+            van je pensioen.
+          </p>
+          <a
+            href="https://ing.cdcpensioen.nl/publicaties"
+            data-href-nl="https://ing.cdcpensioen.nl/publicaties"
+            data-href-en=" https://ing.cdcpensioen.nl/en/publications"
+            target="_blank"
+            data-translate="View all publications"
+            >Bekijk alle publicaties »</a
+          >
+        </div>
+
+        <div class="bottom-card">
+          <p
+            data-translate="Do you want to know what a term such as funding ratio or matching portfolio means?"
+          >
+            Wil je weten wat een begrip als dekkingsgraad of matching
+            portefeuille betekent?
+          </p>
+          <a
+            href="https://ing.cdcpensioen.nl/begrippenlijst"
+            data-href-nl="https://ing.cdcpensioen.nl/begrippenlijst"
+            data-href-en="https://ing.cdcpensioen.nl/en/terms"
+            target="_blank"
+            data-translate="View the glossary"
+            >Bekijk de begrippenlijst »</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <img
+        src="https://mailer.cdcpensioen.nl/uploads/nieuwsflits/email-common/ing/footer-nl.jpg"
+        alt="Placeholder Image"
+      />
+      <p
+        data-translate="This quarterly report has been carefully compiled. The final figures will be published in the annual report for 2024. No rights can be derived from this report."
+      >
+        Dit kwartaalbericht is op zorgvuldige wijze tot stand gekomen. In het
+        jaarverslag over 2024 worden de definitieve cijfers gepubliceerd. Aan
+        dit bericht kunnen geen rechten worden ontleend.
+      </p>
+      <div class="footer-links">
+        <a
+          target="_blank"
+          href="https://ing.cdcpensioen.nl/uploads/website/fondsdocumenten/privacy_verklaring/icp_privacy_verklaring.pdf"
+          data-translate="Privacy statement"
+          >Privacyverklaring</a
+        >
+        <a
+          target="_blank"
+          href=""
+          data-translate="I no longer want to receive the newsletter"
+          >Ik wil geen berichten meer ontvangen</a
+        >
+        <a
+          target="_blank"
+          href=""
+          data-translate="I want to change my email address"
+          >Ik wil mijn e-mailadres aanpassen</a
+        >
+      </div>
+    </footer>
+
+    <script>
+      let isEnglish = false;
+
+      const translations = {
+        // English to Dutch
+        "English version": "Nederlandse versie",
+        "Nederlandse versie": "English version",
+        Kwartaalbericht: "Quarterly Report",
+        "Quarterly Report": "Kwartaalbericht",
+        "Kwartaalbericht Q2 2024": "Quarterly Report Q2 2024",
+        "Quarterly Report Q2 2024": "Kwartaalbericht Q2 2024",
+        "ING CDC Pensioenfonds is committed to giving accountability for its policies and investment results. After all, they could have an impact on your pension.":
+          "ING CDC Pensioenfonds vindt het belangrijk om verantwoording af te leggen over het gevoerde beleid en de beleggingsresultaten. Die kunnen invloed hebben op jouw pensioen.",
+        "ING CDC Pensioenfonds vindt het belangrijk om verantwoording af te leggen over het gevoerde beleid en de beleggingsresultaten. Die kunnen invloed hebben op jouw pensioen.":
+          "ING CDC Pensioenfonds is committed to giving accountability for its policies and investment results. After all, they could have an impact on your pension.",
+        "Funding ratio improved in second quarter":
+          "Dekkingsgraad gestegen in tweede kwartaal",
+        "Dekkingsgraad gestegen in tweede kwartaal":
+          "Funding ratio improved in second quarter",
+        "What you need to know": "Dit moet je weten",
+        "Dit moet je weten": "What you need to know",
+        "current funding ratio rose from 130.0% to 134.5%":
+          "actuele dekkingsgraad gestegen van 130,0% naar 134,5%",
+        "actuele dekkingsgraad gestegen van 130,0% naar 134,5%":
+          "current funding ratio rose from 130.0% to 134.5%",
+        "policy funding ratio rose from 131.7% to 133.3%":
+          "beleidsdekkingsgraad gestegen van 131,7% naar 133,3%",
+        "beleidsdekkingsgraad gestegen van 131,7% naar 133,3%":
+          "policy funding ratio rose from 131.7% to 133.3%",
+        "what does this mean for your pension?":
+          "wat betekent dit voor je pensioen?",
+        "wat betekent dit voor je pensioen?":
+          "what does this mean for your pension?",
+        "Read more": "Lees meer",
+        "Lees meer": "Read more",
+        "Interest rates continue in upward trend":
+          "Trend van stijgende rente zet door",
+        "Trend van stijgende rente zet door":
+          "Interest rates continue in upward trend",
+        "will interest rates continue to rise?":
+          "maar blijft de rente zich gunstig ontwikkelen?",
+        "maar blijft de rente zich gunstig ontwikkelen?":
+          "will interest rates continue to rise?",
+        "what does this mean for your pension?":
+          "wat betekent dit voor jouw pensioen?",
+        "wat betekent dit voor jouw pensioen?":
+          "what does this mean for your pension?",
+        "when will you know more?": "wanneer weet je meer?",
+        "wanneer weet je meer?": "when will you know more?",
+        "Equity on the rise": "Aandelen in de lift",
+        "Aandelen in de lift": "Equity on the rise",
+        "why is return on investments important for your pension?":
+          "waarom is rendement belangrijk voor je pensioen?",
+        "waarom is rendement belangrijk voor je pensioen?":
+          "why is return on investments important for your pension?",
+        "does your pension contribution play a role?":
+          "speelt de premie die je inlegt ook nog een rol?",
+        "speelt de premie die je inlegt ook nog een rol?":
+          "does your pension contribution play a role?",
+        "which investments performed well in the second quarter?":
+          "welke beleggingen deden het goed in het tweede kwartaal?",
+        "welke beleggingen deden het goed in het tweede kwartaal?":
+          "which investments performed well in the second quarter?",
+        "Favourable financial developments alongside political tension":
+          "Gunstige financiële ontwikkelingen naast politieke spanningen",
+        "Gunstige financiële ontwikkelingen naast politieke spanningen":
+          "Favourable financial developments alongside political tension",
+        "will the AI hype boost share prices?":
+          "leidt de AI-hype tot een stijging van de aandelen?",
+        "leidt de AI-hype tot een stijging van de aandelen?":
+          "will the AI hype boost share prices?",
+        "are you noticing that inflation is lower than expected?":
+          "merk je al dat de inflatie lager is dan verwacht?",
+        "merk je al dat de inflatie lager is dan verwacht?":
+          "are you noticing that inflation is lower than expected?",
+        "are oil prices being impacted by tension in the Middle East?":
+          "beweegt de olieprijs mee met de spanningen in het Midden-Oosten?",
+        "beweegt de olieprijs mee met de spanningen in het Midden-Oosten?":
+          "are oil prices being impacted by tension in the Middle East?",
+        "ING CDC Pensioenfonds is happy to inform you through various publications.":
+          "ING CDC Pensioenfonds informeert je regelmatig over de ontwikkeling van je pensioen.",
+        "ING CDC Pensioenfonds informeert je regelmatig over de ontwikkeling van je pensioen.":
+          "ING CDC Pensioenfonds is happy to inform you through various publications.",
+        "View all publications": "Bekijk alle publicaties »",
+        "Bekijk alle publicaties »": "View all publications",
+        "Do you want to know what a term such as funding ratio or matching portfolio means?":
+          "Wil je weten wat een begrip als dekkingsgraad of matching portefeuille betekent?",
+        "Wil je weten wat een begrip als dekkingsgraad of matching portefeuille betekent?":
+          "Do you want to know what a term such as funding ratio or matching portfolio means?",
+        "View the glossary": "Bekijk de begrippenlijst »",
+        "Bekijk de begrippenlijst »": "View the glossary",
+        "This quarterly report has been carefully compiled. The final figures will be published in the annual report for 2024. No rights can be derived from this report.":
+          "Dit kwartaalbericht is op zorgvuldige wijze tot stand gekomen. In het jaarverslag over 2024 worden de definitieve cijfers gepubliceerd. Aan dit bericht kunnen geen rechten worden ontleend.",
+        "Dit kwartaalbericht is op zorgvuldige wijze tot stand gekomen. In het jaarverslag over 2024 worden de definitieve cijfers gepubliceerd. Aan dit bericht kunnen geen rechten worden ontleend.":
+          "This quarterly report has been carefully compiled. The final figures will be published in the annual report for 2024. No rights can be derived from this report.",
+        "Privacy statement": "Privacyverklaring",
+        Privacyverklaring: "Privacy statement",
+        "I no longer want to receive the newsletter":
+          "Ik wil geen berichten meer ontvangen",
+        "Ik wil geen berichten meer ontvangen":
+          "I no longer want to receive the newsletter",
+        "I want to change my email address":
+          "Ik wil mijn e-mailadres aanpassen",
+        "Ik wil mijn e-mailadres aanpassen":
+          "I want to change my email address",
+      };
+
+      function toggleLanguage() {
+        const elements = document.querySelectorAll("[data-translate]");
+        elements.forEach((el) => {
+          const originalText = el.textContent
+            .trim()
+            .replace(/\n/g, " ")
+            .replace(/\s+/g, " ");
+          el.textContent = translations[originalText] || originalText; // Translate if possible
+
+          // Check if the element has data-href attributes and update the href based on language
+          if (
+            el.hasAttribute("data-href-en") &&
+            el.hasAttribute("data-href-nl")
+          ) {
+            el.href = isEnglish
+              ? el.getAttribute("data-href-nl")
+              : el.getAttribute("data-href-en");
+          }
+        });
+
+        isEnglish = !isEnglish;
+
+        const button = document.querySelector(".translation-btn a");
+        button.textContent = isEnglish
+          ? "Nederlandse versie"
+          : "English version";
+      }
+
+      // function toggleLanguage() {
+      //   const elements = document.querySelectorAll("[data-translate]");
+
+      //   elements.forEach((el) => {
+      //     const originalText = el.textContent
+      //       .trim()
+      //       .replace(/\n/g, " ")
+      //       .replace(/\s+/g, " ");
+
+      //     el.textContent = translations[originalText] || originalText;
+      //   });
+
+      //   isEnglish = !isEnglish;
+
+      //   const button = document.querySelector(".translation-btn a");
+      //   button.textContent = isEnglish
+      //     ? "Nederlandse versie"
+      //     : "English version";
+      // }
+    </script>
+  </body>
+</html>
